@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidratul Muntaha Chowdhury | Portfolio</title>
+
+<style>
+:root {
+  --bg: #fcf9ff;
+  --surface: #ffffff;
+  --text: #302542;
+  --muted: #756a83;
+  --purple: #9b72cf;
+  --pink: #f4b8d5;
+  --blue: #b8dfff;
+  --border: #eee3f7;
+  --shadow: 0 12px 35px rgba(94, 61, 125, 0.10);
+}
+
+body.dark {
+  --bg: #171321;
+  --surface: #231c30;
+  --text: #f6efff;
+  --muted: #c2b5d2;
+  --purple: #c5a0f4;
+  --pink: #68445e;
+  --blue: #344e6b;
+  --border: #3b304a;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+/* Navigation */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 18px rgba(70, 40, 90, 0.04);
+}
+
+nav {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #a56dd5, #e88ebc, #78bde9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--purple);
+}
+
+/* Beautiful sun and moon button */
+
+.theme-toggle {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: linear-gradient(145deg, #fff0b8, #ffd8e9);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+  box-shadow: 0 4px 12px rgba(155, 114, 207, 0.15);
+}
+
+.theme-toggle:hover {
+  transform: rotate(-12deg) scale(1.07);
+}
+
+body.dark .theme-toggle {
+  background: linear-gradient(145deg, #41345f, #292541);
+  color: #f9e4a8;
+  border-color: #65527f;
+}
+
+.theme-toggle svg {
+  width: 23px;
+  height: 23px;
+}
+
+.sun-icon { display: block; }
+.moon-icon { display: none; }
+
+body.dark .sun-icon { display: none; }
+body.dark .moon-icon { display: block; }
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+/* General sections */
+
+section {
+  padding: 88px 0;
+  scroll-margin-top: 75px;
+}
+
+.hero {
+  min-height: 76vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(244,184,213,.28), transparent 36%),
+    radial-gradient(ellipse at 85% 75%, rgba(184,223,255,.35), transparent 38%);
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 7px 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  background: #f4e9ff;
+  color: #8051ad;
+  font-size: 0.87rem;
+  font-weight: 700;
+}
+
+body.dark .eyebrow {
+  background: #382945;
+  color: #dfc4ff;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1.16;
+  letter-spacing: -1.7px;
+  margin-bottom: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #a16bd2, #e28cb9, #69b6e7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 630px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 23px;
+  border-radius: 30px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.button-primary {
+  background: linear-gradient(100deg, #a77cdb, #e7a3c8);
+  color: white;
+}
+
+.button-secondary {
+  border-color: var(--border);
+  background: var(--surface);
+  margin-left: 10px;
+}
+
+/* Section headings */
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+/* About: no image */
+
+.about-content {
+  max-width: 780px;
+  margin: auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.about-content p {
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Skills */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  padding: 26px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+}
+
+.skill-card h3 {
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* Projects */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 23px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+}
+
+.project-art {
+  height: 210px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.project-art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.art-university {
+  background: linear-gradient(135deg, #f8d8eb, #e6d9ff);
+}
+
+.art-registration {
+  background: linear-gradient(135deg, #d8efff, #d8f8ed);
+}
+
+.art-qt {
+  background: linear-gradient(135deg, #ffe6c9, #f8d9ef);
+}
+
+.project-info {
+  padding: 23px;
+}
+
+.project-info h3 {
+  font-size: 1.13rem;
+  margin-bottom: 9px;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.project-tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: #f1e7ff;
+  color: #8055a8;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+body.dark .project-tag {
+  background: #3d2d50;
+  color: #e1c8ff;
+}
+
+/* Contact: same pastel theme as the other pages */
+
+.contact-section {
+  background:
+    radial-gradient(ellipse at 10% 15%, rgba(244,184,213,.65), transparent 40%),
+    radial-gradient(ellipse at 90% 85%, rgba(184,223,255,.75), transparent 42%),
+    linear-gradient(135deg, #eee1ff, #fceaf5 48%, #e4f3ff);
+  color: #302542;
+}
+
+.contact-section .section-heading h2 {
+  color: #302542;
+}
+
+.contact-section .section-heading p {
+  color: #756a83;
+}
+
+/* Lavender contact card instead of gray or black */
+
+.contact-card {
+  width: min(680px, 100%);
+  margin: auto;
+  padding: 34px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff, #f9efff 55%, #eef7ff);
+  color: #302542;
+  border: 1px solid rgba(190, 160, 220, 0.55);
+  box-shadow: 0 14px 35px rgba(94, 61, 125, 0.14);
+}
+
+.contact-card > p {
+  text-align: center;
+  color: #756a83;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 19px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #40314f;
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+
+.form-group input,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 13px;
+  outline: none;
+  color: #302542;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Pink Name and Email fields */
+
+.form-group input {
+  background: #fff0f7;
+  border-color: #f5d3e5;
+}
+
+.form-group input:focus {
+  border-color: #d98db9;
+  box-shadow: 0 0 0 3px rgba(217,141,185,.2);
+}
+
+/* Sky-blue Message field */
+
+.form-group textarea {
+  min-height: 145px;
+  resize: vertical;
+  background: #edf5ff;
+  border-color: #d0e5ff;
+}
+
+.form-group textarea:focus {
+  border-color: #81b9ef;
+  box-shadow: 0 0 0 3px rgba(129,185,239,.2);
+}
+
+.contact-submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.form-note {
+  font-size: 0.82rem;
+  color: #756a83;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Pastel Contact section in dark mode too */
+
+body.dark .contact-section {
+  background:
+    radial-gradient(ellipse at 10% 15%, rgba(104,68,94,.7), transparent 40%),
+    radial-gradient(ellipse at 90% 85%, rgba(52,78,107,.8), transparent 42%),
+    linear-gradient(135deg, #282035, #302335 48%, #202b3a);
+  color: #f6efff;
+}
+
+body.dark .contact-section .section-heading h2 {
+  color: #f6efff;
+}
+
+body.dark .contact-section .section-heading p {
+  color: #c2b5d2;
+}
+
+body.dark .contact-card {
+  background: linear-gradient(145deg, #30263d, #35293d 55%, #263342);
+  color: #f6efff;
+  border-color: #51415f;
+}
+
+body.dark .contact-card > p,
+body.dark .contact-card label {
+  color: #f6efff;
+}
+
+body.dark .contact-card .form-note {
+  color: #c2b5d2;
+}
+
+body.dark .form-group input {
+  background: #493043;
+  color: #fff1fa;
+  border-color: #68435d;
+}
+
+body.dark .form-group textarea {
+  background: #263e55;
+  color: #eff7ff;
+  border-color: #3e5c7b;
+}
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder {
+  color: #c6b8d0;
+}
+
+/* Footer */
+
+footer {
+  padding: 25px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+
+@media (max-width: 850px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 650px) {
+  nav {
+    min-height: 70px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    padding: 0 0 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 68vh;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content,
+  .contact-card {
+    padding: 23px;
+  }
+
+  .button-secondary {
+    margin: 12px 0 0;
+  }
+
+  .project-art {
+    height: 220px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="brand">Sidratul Muntaha Chowdhury</a>
+
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle"
+        aria-label="Switch to dark mode" title="Change theme">
+        <svg class="sun-icon" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+        </svg>
+
+        <svg class="moon-icon" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M20.8 14.1A8.8 8.8 0 0 1 9.9 3.2a9 9 0 1 0 10.9 10.9Z"></path>
+          <path d="m16.5 3 .5 1.5 1.5.5-1.5.5-.5 1.5L16 5.5l-1.5-.5 1.5-.5.5-1.5Z"></path>
+        </svg>
+      </button>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Home: no image or logo -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Welcome to my portfolio</span>
+        <h1>Hi, I'm <span class="gradient-text">Sidratul Muntaha Chowdhury</span></h1>
+        <p>
+          A CSE student interested in technology, creative ideas,
+          and building useful projects. Welcome to my little corner
+          of the digital world.
+        </p>
+        <a href="#projects" class="button button-primary">Explore My Projects</a>
+        <a href="#contact" class="button button-secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About: text only -->
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <h2>About <span class="gradient-text">Me</span></h2>
+        <p>A little introduction</p>
+      </div>
+
+      <div class="about-content">
+        <p>
+          Hello! I'm Sidratul Muntaha Chowdhury, a Computer Science
+          and Engineering student who enjoys exploring technology
+          and learning how digital things work.
+        </p>
+        <p>
+          I'm interested in developing my technical skills, working
+          on academic projects, and discovering new ideas that can
+          turn into useful solutions.
+        </p>
+        <p>
+          This portfolio is a place to share my skills, projects,
+          and learning journey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-heading">
+        <h2>My <span class="gradient-text">Skills</span></h2>
+        <p>Things I'm learning and developing</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Problem Solving</h3>
+          <p>Breaking problems into smaller, manageable steps.</p>
+        </article>
+        <article class="skill-card">
+          <h3>Teamwork</h3>
+          <p>Sharing ideas and working together on tasks.</p>
+        </article>
+        <article class="skill-card">
+          <h3>Communication</h3>
+          <p>Expressing ideas clearly and listening to others.</p>
+        </article>
+        <article class="skill-card">
+          <h3>Documentation</h3>
+          <p>Organizing project information and reports.</p>
+        </article>
+        <article class="skill-card">
+          <h3>Presentation</h3>
+          <p>Presenting topics and explaining ideas.</p>
+        </article>
+        <article class="skill-card">
+          <h3>Creative Thinking</h3>
+          <p>Exploring different approaches to a challenge.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cartoon project illustrations -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <h2>My <span class="gradient-text">Projects</span></h2>
+        <p>A few projects from my learning journey</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-art art-university">
+            <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Cartoon university building">
+              <circle cx="260" cy="36" r="19" fill="#fff4b8"/>
+              <path d="M0 172 Q70 145 135 174 T320 166 V210 H0Z" fill="#c7b7f0"/>
+              <path d="M69 86 L160 42 L251 86Z" fill="#a47ad4" stroke="#7955a8" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="83" y="86" width="154" height="82" rx="5" fill="#fff9fd" stroke="#7955a8" stroke-width="3"/>
+              <rect x="72" y="80" width="176" height="12" rx="4" fill="#e9b7d6" stroke="#7955a8" stroke-width="3"/>
+              <rect x="143" y="121" width="34" height="47" rx="16" fill="#b9dfff" stroke="#7955a8" stroke-width="3"/>
+              <path d="M160 43 V26" stroke="#7955a8" stroke-width="3" stroke-linecap="round"/>
+              <path d="M150 28 L160 19 L170 28Z" fill="#e9a4ca" stroke="#7955a8" stroke-width="2"/>
+              <g fill="#c4e7ff" stroke="#7955a8" stroke-width="2">
+                <rect x="96" y="101" width="20" height="22" rx="4"/>
+                <rect x="126" y="101" width="10" height="22" rx="3"/>
+                <rect x="184" y="101" width="10" height="22" rx="3"/>
+                <rect x="204" y="101" width="20" height="22" rx="4"/>
+              </g>
+              <path d="M65 170 H255" stroke="#7955a8" stroke-width="4" stroke-linecap="round"/>
+              <g transform="translate(24 118)">
+                <rect x="0" y="15" width="21" height="38" rx="7" fill="#a6dcb9"/>
+                <circle cx="10" cy="10" r="13" fill="#79c99a"/>
+                <circle cx="0" cy="19" r="9" fill="#91d9aa"/>
+                <circle cx="20" cy="20" r="10" fill="#91d9aa"/>
+              </g>
+              <g transform="translate(272 124)">
+                <rect x="0" y="14" width="18" height="31" rx="6" fill="#e7a4ca"/>
+                <circle cx="8" cy="8" r="12" fill="#e7a4ca"/>
+                <circle cx="0" cy="17" r="8" fill="#f5bfdc"/>
+                <circle cx="17" cy="18" r="8" fill="#f5bfdc"/>
+              </g>
+              <g fill="#fff" opacity=".9">
+                <path d="M35 47 l4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"/>
+                <path d="M278 74 l3 6 6 3-6 3-3 6-3-6-6-3 6-3Z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3>University Management System</h3>
+            <p>A project concept for organizing university information and administrative tasks.</p>
+            <span class="project-tag">Academic Project</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art art-registration">
+            <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Cartoon student and course registration">
+              <circle cx="52" cy="37" r="18" fill="#fff1bd"/>
+              <circle cx="276" cy="47" r="12" fill="#fff1bd"/>
+              <path d="M0 176 Q75 150 150 178 T320 171 V210 H0Z" fill="#bcebdc"/>
+              <rect x="119" y="34" width="130" height="125" rx="12" fill="#fff" stroke="#6d9eaf" stroke-width="3"/>
+              <rect x="133" y="48" width="102" height="19" rx="6" fill="#b8dfff"/>
+              <g stroke="#80b7c9" stroke-width="3" stroke-linecap="round">
+                <path d="M139 83 H222"/>
+                <path d="M139 103 H211"/>
+                <path d="M139 123 H222"/>
+              </g>
+              <g fill="#8ad6b1" stroke="#428c76" stroke-width="2">
+                <circle cx="139" cy="83" r="5"/>
+                <circle cx="139" cy="103" r="5"/>
+                <circle cx="139" cy="123" r="5"/>
+              </g>
+              <g transform="translate(40 70)">
+                <path d="M20 37 Q20 8 45 8 Q70 8 70 37 V72 H20Z" fill="#a783d9"/>
+                <circle cx="45" cy="23" r="20" fill="#f4c9a7"/>
+                <path d="M25 22 Q20 -3 44 0 Q65 -1 66 20 L59 15 L32 15Z" fill="#684c73"/>
+                <circle cx="38" cy="24" r="2" fill="#48354b"/>
+                <circle cx="52" cy="24" r="2" fill="#48354b"/>
+                <path d="M40 32 Q45 37 51 32" fill="none" stroke="#c56c77" stroke-width="2" stroke-linecap="round"/>
+                <path d="M24 48 L5 78 Q3 84 11 87 L34 64" fill="#f4c9a7"/>
+                <path d="M65 48 L83 64 Q90 71 83 77 L63 63" fill="#f4c9a7"/>
+                <rect x="29" y="69" width="33" height="30" rx="4" fill="#e8a5ca"/>
+              </g>
+              <g transform="translate(205 133)">
+                <circle cx="0" cy="0" r="22" fill="#ffdf8e" stroke="#bd8c43" stroke-width="3"/>
+                <path d="M-10 0 L-3 8 L11 -9" fill="none" stroke="#6b9b70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <g fill="#fff" opacity=".95">
+                <path d="M89 39 l4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"/>
+                <path d="M267 105 l3 6 6 3-6 3-3 6-3-6-6-3 6-3Z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3>Student Course Registration System</h3>
+            <p>A system concept for course selection, registration, and student records.</p>
+            <span class="project-tag">CSE Project</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art art-qt">
+            <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg"
+              role="img" aria-label="Cartoon computer application">
+              <circle cx="266" cy="37" r="19" fill="#fff1bd"/>
+              <path d="M0 174 Q75 153 152 176 T320 172 V210 H0Z" fill="#f2bfdc"/>
+              <rect x="45" y="40" width="229" height="126" rx="13" fill="#fff" stroke="#a16f9d" stroke-width="3"/>
+              <path d="M45 54 Q45 40 59 40 H260 Q274 40 274 54 V64 H45Z" fill="#d8c4f6"/>
+              <circle cx="60" cy="52" r="4" fill="#f28bb6"/>
+              <circle cx="74" cy="52" r="4" fill="#f7cf7b"/>
+              <circle cx="88" cy="52" r="4" fill="#8bd6ae"/>
+              <rect x="64" y="78" width="83" height="70" rx="8" fill="#f6eafa"/>
+              <rect x="159" y="80" width="95" height="12" rx="5" fill="#b7dfff"/>
+              <rect x="159" y="101" width="76" height="8" rx="4" fill="#e8b6d4"/>
+              <rect x="159" y="117" width="88" height="8" rx="4" fill="#d5c4f3"/>
+              <rect x="159" y="133" width="57" height="8" rx="4" fill="#b8e6d0"/>
+              <g transform="translate(79 91)">
+                <rect x="0" y="0" width="53" height="39" rx="6" fill="#b8dfff"/>
+                <path d="M11 20 L20 28 L40 10" fill="none" stroke="#5b8eb5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <path d="M144 166 V180 H176 V166" fill="#d7c5e9" stroke="#a16f9d" stroke-width="3"/>
+              <rect x="125" y="179" width="70" height="8" rx="4" fill="#a16f9d"/>
+              <g transform="translate(20 93)">
+                <rect x="0" y="0" width="35" height="43" rx="8" fill="#a7dabc"/>
+                <circle cx="17" cy="14" r="7" fill="#fff"/>
+                <path d="M10 30 H24" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              </g>
+              <g fill="#fff" opacity=".95">
+                <path d="M28 36 l4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"/>
+                <path d="M289 92 l3 6 6 3-6 3-3 6-3-6-6-3 6-3Z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3>Qt Project</h3>
+            <p>A desktop application project exploring interface design and application functionality.</p>
+            <span class="project-tag">Desktop Application</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact: pastel gradient to match the other pages -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Contact <span class="gradient-text">Me</span></h2>
+        <p>Have a question or want to connect? Send me a message.</p>
+      </div>
+
+      <div class="contact-card">
+        <p>I'd love to hear from you!</p>
+
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name"
+              placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email"
+              placeholder="Enter your email address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"
+              placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="button button-primary contact-submit">
+            Send Message
+          </button>
+
+          <p class="form-note">
+            This form opens your email app to send the message.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Sidratul Muntaha Chowdhury. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const themeToggle = document.getElementById("themeToggle");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+// Light and dark mode
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+
+  themeToggle.setAttribute(
+    "aria-label",
+    isDark ? "Switch to light mode" : "Switch to dark mode"
+  );
+});
+
+// Mobile navigation
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// Current year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Contact form
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Replace this with your own email address
+  const recipient = "YOUR_EMAIL@example.com";
+
+  const subject = encodeURIComponent("Portfolio contact from " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n\n" +
+    "Message:\n" + message
+  );
+
+  window.location.href =
+    "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>
